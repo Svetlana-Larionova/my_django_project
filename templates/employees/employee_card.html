@@ -1,0 +1,29 @@
+<div class="card" onclick="location.href='{% url 'employees:employee_detail' employee.pk %}'">
+    {% if employee.images.first %}
+        <img src="{{ employee.images.first.image.url }}"
+             alt="{{ employee.last_name }}"
+             style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px;">
+    {% endif %}
+
+    <h3>{{ employee.last_name }} {{ employee.first_name }}</h3>
+    {% if employee.middle_name %}
+        <p>{{ employee.middle_name }}</p>
+    {% endif %}
+
+    <div class="skills">
+        {% for employee_skill in employee.employeeskill_set.all|slice:":3" %}
+            <span class="skill-tag">
+                {{ employee_skill.skill.name }} ({{ employee_skill.level }})
+            </span>
+        {% endfor %}
+        {% if employee.employeeskill_set.count > 3 %}
+            <span class="skill-tag">...</span>
+        {% endif %}
+    </div>
+
+    <p><strong>Стаж:</strong> {{ employee.work_experience_days }} дней</p>
+
+    {% if employee.workplace %}
+        <p><strong>Стол:</strong> {{ employee.workplace.desk_number }}</p>
+    {% endif %}
+</div>

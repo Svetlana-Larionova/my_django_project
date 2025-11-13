@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ employee.last_name }} {{ employee.first_name }} - Система сотрудников{% endblock %}
+
+{% block content %}
+    <div style="display: flex; gap: 2rem; align-items: start;">
+        <div style="flex: 1;">
+            <h1>{{ employee.last_name }} {{ employee.first_name }} {{ employee.middle_name }}</h1>
+
+            <p><strong>Пол:</strong> {{ employee.get_gender_display }}</p>
+            <p><strong>Стаж:</strong> {{ employee.work_experience_days }} дней</p>
+
+            {% if employee.workplace %}
+                <p><strong>Номер стола:</strong> {{ employee.workplace.desk_number }}</p>
+            {% endif %}
+
+            <h3>Навыки:</h3>
+            <div class="skills">
+                {% for employee_skill in employee.employeeskill_set.all %}
+                    <span class="skill-tag">
+                        {{ employee_skill.skill.name }} (уровень {{ employee_skill.level }})
+                    </span>
+                {% empty %}
+                    <p>Навыки не указаны</p>
+                {% endfor %}
+            </div>
+
+            {% if employee.description %}
+                <h3>Описание:</h3>
+                <p>{{ employee.description }}</p>
+            {% endif %}
+        </div>
+
+        <div style="flex: 1;">
+            <h3>Галерея:</h3>
+
+            <!-- Заглавное фото -->
+            {% with main_image=employee.images.first %}
+                {% if main_image %}
+                    <div style="margin-bottom: 2rem;">
+                        <h4>Основное фото:</h4>
+                        <img src="{{ main_image.image.url }}"
+                             alt="Основное фото {{ employee.last_name }}"
+                             style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 8px;">
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <!-- Остальные фото галереи -->
+            <h4>Дополнительные фото:</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                {% for image in employee.images.all %}
+                    {% if not forloop.first %}  <!-- Пропускаем первое изображение -->
+                        <img src="{{ image.image.url }}"
+                             alt="Фото {{ employee.last_name }}"
+                             style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                    {% endif %}
+                {% empty %}
+                    <p>Дополнительные изображения не добавлены</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 2rem;">
+        <a href="{% url 'employees:employee_list' %}" style="
+            background: #7f8c8d;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+        ">← Назад к списку</a>
+    </div>
+{% endblock %}

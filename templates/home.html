@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Главная - Система сотрудников{% endblock %}
+
+{% block content %}
+    <h1>Добро пожаловать в систему управления сотрудниками</h1>
+    <p>Это система для управления информацией о сотрудниках, их навыках и рабочих местах.</p>
+
+    <div style="background: #3498db; color: white; padding: 1rem; border-radius: 8px; margin: 2rem 0;">
+        <h2>Общее количество сотрудников: {{ total_employees }}</h2>
+    </div>
+
+    <h2>Новые сотрудники</h2>
+    <div class="employee-grid">
+        {% for employee in employees %}
+            {% include 'employees/employee_card.html' with employee=employee %}
+        {% empty %}
+            <p>Сотрудники не найдены.</p>
+        {% endfor %}
+    </div>
+
+    <div style="text-align: center; margin-top: 2rem;">
+        <a href="{% url 'employees:employee_list' %}" style="
+            background: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        ">Посмотреть всех сотрудников</a>
+    </div>
+{% endblock %}

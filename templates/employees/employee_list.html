@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Все сотрудники - Система сотрудников{% endblock %}
+
+{% block content %}
+    <h1>Все сотрудники</h1>
+
+    <div class="employee-grid">
+        {% for employee in employees %}
+            {% include 'employees/employee_card.html' with employee=employee %}
+        {% empty %}
+            <p>Сотрудники не найдены.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Пагинация -->
+    <div style="text-align: center; margin-top: 2rem;">
+        {% if is_paginated %}
+            <div class="pagination">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">← Назад</a>
+                {% endif %}
+
+                <span>Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Вперед →</a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
