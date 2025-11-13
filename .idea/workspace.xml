@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d0d7595-8c68-43fe-bdcf-e4bf75edec27" name="Changes" comment="Д/з">
-      <change afterPath="$PROJECT_DIR$/employees/api_urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/employees/api_views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/employees/filters.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/employees/management/commands/create_test_users.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/employees/permissions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/employees/serializers.py" afterDir="false" />
+    <list default="true" id="2d0d7595-8c68-43fe-bdcf-e4bf75edec27" name="Changes" comment="Д/з6">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/500.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/api_documentation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,13 +89,22 @@
       <option name="project" value="LOCAL" />
       <updated>1763059866972</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Д/з6">
+      <option name="closed" value="true" />
+      <created>1763060818303</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1763060818303</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Работа сделана." />
     <MESSAGE value="Д/з" />
-    <option name="LAST_COMMIT_MESSAGE" value="Д/з" />
+    <MESSAGE value="Д/з6" />
+    <option name="LAST_COMMIT_MESSAGE" value="Д/з6" />
   </component>
 </project>

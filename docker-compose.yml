@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: employeedb
+      POSTGRES_USER: employeeuser
+      POSTGRES_PASSWORD: employeepass
+    ports:
+      - "5432:5432"
+
+  web:
+    build: .
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py collectstatic --noinput &&
+             python manage.py create_test_users &&
+             python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/home/app
+      - static_volume:/home/app/static
+      - media_volume:/home/app/media
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://employeeuser:employeepass@db:5432/employeedb
+      DEBUG: "True"
+      SECRET_KEY: django-insecure-docker-secret-key-change-in-production
+      ALLOWED_HOSTS: localhost,127.0.0.1,0.0.0.0
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:

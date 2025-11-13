@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Ошибка сервера - 500{% endblock %}
+
+{% block content %}
+<div style="text-align: center; padding: 4rem 0;">
+    <h1>500 - Ошибка сервера</h1>
+    <p>На сервере произошла ошибка. Пожалуйста, попробуйте позже.</p>
+    <a href="{% url 'employees:home' %}" style="
+        background: #3498db;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        text-decoration: none;
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 1rem;
+    ">Вернуться на главную</a>
+</div>
+{% endblock %}
