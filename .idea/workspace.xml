@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d0d7595-8c68-43fe-bdcf-e4bf75edec27" name="Changes" comment="Работа сделана.">
-      <change afterPath="$PROJECT_DIR$/employees/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/employees/employee_card.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/employees/employee_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/employees/employee_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+    <list default="true" id="2d0d7595-8c68-43fe-bdcf-e4bf75edec27" name="Changes" comment="Д/з">
+      <change afterPath="$PROJECT_DIR$/employees/api_urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employees/api_views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employees/filters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employees/management/commands/create_test_users.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employees/permissions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/employees/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,12 +80,21 @@
       <option name="project" value="LOCAL" />
       <updated>1763056823143</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Д/з">
+      <option name="closed" value="true" />
+      <created>1763059866972</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1763059866972</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Работа сделана." />
-    <option name="LAST_COMMIT_MESSAGE" value="Работа сделана." />
+    <MESSAGE value="Д/з" />
+    <option name="LAST_COMMIT_MESSAGE" value="Д/з" />
   </component>
 </project>
